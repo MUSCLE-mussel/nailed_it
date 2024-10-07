@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://bw32n2esbu4eb"]
+[gd_scene load_steps=7 format=3 uid="uid://bw32n2esbu4eb"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ql4pp"]
+[ext_resource type="PackedScene" uid="uid://cxvg2j4rudrho" path="res://hammer.tscn" id="1_xa01k"]
+[ext_resource type="Texture2D" uid="uid://bhnguihlb5yj3" path="res://icon.svg" id="3_fy5of"]
+[ext_resource type="Script" path="res://nail.gd" id="3_toprf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbch2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqd27"]
+radius = 50.01
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_ql4pp")
+
+[node name="hammer" parent="." node_paths=PackedStringArray("target_nail") instance=ExtResource("1_xa01k")]
+target_nail = NodePath("../nail")
+angle_noise_speed = 4.0
+valid_hold_time = 0.2
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="nail" type="Node2D" parent="."]
+position = Vector2(122, -83)
+script = ExtResource("3_toprf")
+
+[node name="visual" type="Sprite2D" parent="nail"]
+scale = Vector2(0.171764, 0.171764)
+texture = ExtResource("3_fy5of")
+
+[node name="perfect_hit_area" type="Area2D" parent="nail"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nail/perfect_hit_area"]
+shape = SubResource("CircleShape2D_gbch2")
+debug_color = Color(0.948856, 0, 0.512717, 0.42)
+
+[node name="average_hit_area" type="Area2D" parent="nail"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nail/average_hit_area"]
+shape = SubResource("CircleShape2D_nqd27")
+debug_color = Color(4.23551e-06, 0.620835, 0.559224, 0.42)
+
+[node name="debug" type="Label" parent="."]
+offset_left = -472.0
+offset_top = -277.0
+offset_right = -432.0
+offset_bottom = -254.0

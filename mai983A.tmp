@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw32n2esbu4eb"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ql4pp"]
+[ext_resource type="PackedScene" uid="uid://cxvg2j4rudrho" path="res://hammer.tscn" id="1_xa01k"]
+[ext_resource type="Texture2D" uid="uid://bhnguihlb5yj3" path="res://icon.svg" id="3_fy5of"]
+[ext_resource type="Script" path="res://target.gd" id="3_toprf"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ql4pp")
+
+[node name="hammer" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_xa01k")]
+target = NodePath("../nail")
+angle_noise_speed = 4.0
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="nail" type="Node2D" parent="."]
+position = Vector2(122, -83)
+script = ExtResource("3_toprf")
+
+[node name="visual" type="Sprite2D" parent="nail"]
+scale = Vector2(0.171764, 0.171764)
+texture = ExtResource("3_fy5of")
+
+[node name="debug" type="Label" parent="."]
+offset_left = -472.0
+offset_top = -277.0
+offset_right = -432.0
+offset_bottom = -254.0
