@@ -1,7 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctx60gffgt74d"]
+[gd_scene load_steps=13 format=3 uid="uid://b40awytibyxuw"]
 
-[ext_resource type="Script" path="res://scripts/Hammer.gd" id="1_a5xvh"]
-[ext_resource type="Texture2D" uid="uid://b6fthlwfmowef" path="res://textures/hammer.png" id="2_k11jh"]
+[ext_resource type="Script" path="res://scripts/GameScene.gd" id="1_7582w"]
+[ext_resource type="Script" path="res://scripts/Nail.gd" id="2_87bdj"]
+[ext_resource type="Texture2D" uid="uid://bhnguihlb5yj3" path="res://icon.svg" id="3_lrqsg"]
+[ext_resource type="Script" path="res://scripts/Hammer.gd" id="4_1q5ou"]
+[ext_resource type="Texture2D" uid="uid://b6fthlwfmowef" path="res://textures/hammer.png" id="5_if5ie"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbch2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqd27"]
+radius = 50.01
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2621u"]
 size = Vector2(44, 45)
@@ -96,9 +104,36 @@ _data = {
 "hammer_up": SubResource("Animation_hg1bh")
 }
 
-[node name="hammer" type="Node2D"]
+[node name="game_scene" type="Node2D"]
+process_mode = 4
+script = ExtResource("1_7582w")
+
+[node name="dummy_camera" type="Camera2D" parent="."]
+
+[node name="nail" type="Node2D" parent="."]
+position = Vector2(122, -83)
+script = ExtResource("2_87bdj")
+
+[node name="visual" type="Sprite2D" parent="nail"]
+scale = Vector2(0.171764, 0.171764)
+texture = ExtResource("3_lrqsg")
+
+[node name="perfect_hit_area" type="Area2D" parent="nail"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nail/perfect_hit_area"]
+shape = SubResource("CircleShape2D_gbch2")
+debug_color = Color(0.948856, 0, 0.512717, 0.42)
+
+[node name="average_hit_area" type="Area2D" parent="nail"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nail/average_hit_area"]
+shape = SubResource("CircleShape2D_nqd27")
+debug_color = Color(4.23551e-06, 0.620835, 0.559224, 0.42)
+
+[node name="hammer" type="Node2D" parent="." node_paths=PackedStringArray("target_nail")]
 z_index = 1
-script = ExtResource("1_a5xvh")
+script = ExtResource("4_1q5ou")
+target_nail = NodePath("../nail")
 amplitude_min = 100.0
 amplitude_max = 250.0
 amplitude_noise_speed = 4.64
@@ -108,21 +143,34 @@ phase1_noise_speed = 40.0
 phase2_min = 2.0
 phase2_max = 5.0
 phase2_noise_speed = 40.0
+angle_noise_speed = 4.0
+valid_hold_time = 0.2
 
-[node name="visual" type="Sprite2D" parent="."]
+[node name="visual" type="Sprite2D" parent="hammer"]
 position = Vector2(0, 183)
 scale = Vector2(0.645, 0.645)
-texture = ExtResource("2_k11jh")
+texture = ExtResource("5_if5ie")
 
-[node name="collision" type="Area2D" parent="."]
+[node name="collision" type="Area2D" parent="hammer"]
 collision_layer = 4194305
 input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hammer/collision"]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_2621u")
 
-[node name="animation_player" type="AnimationPlayer" parent="."]
+[node name="animation_player" type="AnimationPlayer" parent="hammer"]
 libraries = {
 "": SubResource("AnimationLibrary_o10nh")
 }
+
+[node name="placeholder_ui" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -462.0
+offset_top = 251.0
+offset_right = -422.0
+offset_bottom = 274.0
+grow_vertical = 0
+text = "Remaining hits: 3"

@@ -38,6 +38,10 @@ var hold_time: float = 0
 
 var last_hit = ""
 
+enum HitType { MISSED, AVERAGE, PERFECT }
+
+signal hammer_hit(type: HitType)
+
 func _init() -> void:
 	amplitude_noise = FastNoiseLite.new()
 	amplitude_noise.noise_type = FastNoiseLite.TYPE_PERLIN
@@ -80,6 +84,7 @@ func _process(delta: float) -> void:
 	var sine = (sin(phase1_time) + sin(phase2_time)) / 2
 	position += direction * (sine * amplitude)
 	
+	# strike animation and logic
 	var strike_down = Input.is_action_pressed("strike")
 	var valid_strike = false
 	if strike_down:
@@ -94,12 +99,12 @@ func _process(delta: float) -> void:
 			else:
 				animation_player.stop()
 			hold_time = 0
-			
+	
+	# strike outcome
 	if valid_strike:
 		if collision.overlaps_area(target_nail.perfect_hit_area):
-			last_hit = "perfect"
+			hammer_hit.emit(HitType.PERFECT)
 		elif collision.overlaps_area(target_nail.average_hit_area):
-			last_hit = "average"
+			hammer_hit.emit(HitType.AVERAGE)
 		else:
-			last_hit = "missed"
-	#collision.overlaps_area()
+			hammer_hit.emit(HitType.MISSED)

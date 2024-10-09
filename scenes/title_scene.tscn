@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmip1wbw2vx8m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jqs8u"]
+font_size = 131
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjm3f"]
+font_size = 31
+
+[node name="title_scene" type="Node2D"]
+
+[node name="TITLE" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -113.84
+offset_right = 309.0
+offset_bottom = 66.16
+grow_horizontal = 2
+grow_vertical = 2
+text = "NAILED IT"
+label_settings = SubResource("LabelSettings_jqs8u")
+horizontal_alignment = 1
+
+[node name="press_key" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 52.0
+offset_right = 200.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 0)
+text = "press any button to start"
+label_settings = SubResource("LabelSettings_tjm3f")
+horizontal_alignment = 1

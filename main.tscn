@@ -1,47 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw32n2esbu4eb"]
+[gd_scene load_steps=11 format=3 uid="uid://bw32n2esbu4eb"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_ql4pp"]
-[ext_resource type="PackedScene" uid="uid://cxvg2j4rudrho" path="res://hammer.tscn" id="1_xa01k"]
-[ext_resource type="Texture2D" uid="uid://bhnguihlb5yj3" path="res://icon.svg" id="3_fy5of"]
-[ext_resource type="Script" path="res://nail.gd" id="3_toprf"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_ql4pp"]
+[ext_resource type="PackedScene" uid="uid://cmip1wbw2vx8m" path="res://scenes/title_scene.tscn" id="2_ou56t"]
+[ext_resource type="PackedScene" uid="uid://b8j5w7agehy73" path="res://scenes/intro_1_scene.tscn" id="3_xf0k4"]
+[ext_resource type="PackedScene" uid="uid://ooceftq3ill2" path="res://scenes/intro_2_scene.tscn" id="4_3m0d0"]
+[ext_resource type="PackedScene" uid="uid://b40awytibyxuw" path="res://scenes/game_scene.tscn" id="4_n4itp"]
+[ext_resource type="PackedScene" uid="uid://b68gktwwnqe7d" path="res://scenes/outro_scene.tscn" id="5_g5upm"]
+[ext_resource type="Script" path="res://scripts/HubScene.gd" id="6_inc70"]
+[ext_resource type="PackedScene" uid="uid://d2n1h3baljbw" path="res://scenes/end_scene.tscn" id="7_u1srp"]
+[ext_resource type="Script" path="res://scripts/HubZone.gd" id="7_wcp76"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gbch2"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nqd27"]
-radius = 50.01
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncl8d"]
+size = Vector2(369, 209)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ql4pp")
 
-[node name="hammer" parent="." node_paths=PackedStringArray("target_nail") instance=ExtResource("1_xa01k")]
-target_nail = NodePath("../nail")
-angle_noise_speed = 4.0
-valid_hold_time = 0.2
-
 [node name="camera" type="Camera2D" parent="."]
 
-[node name="nail" type="Node2D" parent="."]
-position = Vector2(122, -83)
-script = ExtResource("3_toprf")
+[node name="title_scene" parent="." instance=ExtResource("2_ou56t")]
 
-[node name="visual" type="Sprite2D" parent="nail"]
-scale = Vector2(0.171764, 0.171764)
-texture = ExtResource("3_fy5of")
+[node name="intro1_scene" parent="." instance=ExtResource("3_xf0k4")]
 
-[node name="perfect_hit_area" type="Area2D" parent="nail"]
+[node name="intro2_scene" parent="." instance=ExtResource("4_3m0d0")]
+animation_name = &"intro2_placeholder"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="nail/perfect_hit_area"]
-shape = SubResource("CircleShape2D_gbch2")
-debug_color = Color(0.948856, 0, 0.512717, 0.42)
+[node name="game_scene" parent="." instance=ExtResource("4_n4itp")]
 
-[node name="average_hit_area" type="Area2D" parent="nail"]
+[node name="outro_scene" parent="." instance=ExtResource("5_g5upm")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="nail/average_hit_area"]
-shape = SubResource("CircleShape2D_nqd27")
-debug_color = Color(4.23551e-06, 0.620835, 0.559224, 0.42)
+[node name="end_scene" parent="." instance=ExtResource("7_u1srp")]
 
 [node name="debug" type="Label" parent="."]
 offset_left = -472.0
 offset_top = -277.0
 offset_right = -432.0
 offset_bottom = -254.0
+
+[node name="hub_scene" type="Node2D" parent="." node_paths=PackedStringArray("zones")]
+position = Vector2(22, -4)
+script = ExtResource("6_inc70")
+zones = [NodePath("zone1"), NodePath("zone2")]
+
+[node name="zone1" type="CollisionShape2D" parent="hub_scene"]
+position = Vector2(-237, -134)
+shape = SubResource("RectangleShape2D_ncl8d")
+script = ExtResource("7_wcp76")
+
+[node name="zone2" type="CollisionShape2D" parent="hub_scene"]
+position = Vector2(-256, 149)
+shape = SubResource("RectangleShape2D_ncl8d")
+script = ExtResource("7_wcp76")
