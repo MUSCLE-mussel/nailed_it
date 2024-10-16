@@ -36,6 +36,8 @@ var angle: float
 var hold_time: float = 0
 @export var valid_hold_time: float = 0.5
 
+@export var random_array: RandomArray
+
 var last_hit = ""
 
 enum HitType { MISSED, AVERAGE, PERFECT }
@@ -83,6 +85,8 @@ func _process(delta: float) -> void:
 	position = target_nail.global_position
 	var sine = (sin(phase1_time) + sin(phase2_time)) / 2
 	position += direction * (sine * amplitude)
+	
+	position = random_array.get_random_position()
 	
 	# strike animation and logic
 	var strike_down = Input.is_action_pressed("strike")
