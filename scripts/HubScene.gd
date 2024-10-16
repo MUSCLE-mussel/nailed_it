@@ -6,7 +6,6 @@ class_name HubScene
 var selected_zone: int = -1
 
 func _ready() -> void:
-	print("hello")
 	for i in zones.size():
 		if zones[i] == null: continue
 		zones[i].index = i

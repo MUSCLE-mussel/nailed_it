@@ -26,6 +26,7 @@ script = ExtResource("1_ql4pp")
 animation_name = &"intro2_placeholder"
 
 [node name="game_scene" parent="." instance=ExtResource("4_n4itp")]
+process_mode = 0
 
 [node name="outro_scene" parent="." instance=ExtResource("5_g5upm")]
 

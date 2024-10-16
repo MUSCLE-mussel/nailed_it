@@ -1,44 +1,35 @@
-[gd_scene load_steps=13 format=3 uid="uid://b40awytibyxuw"]
+[gd_scene load_steps=16 format=3 uid="uid://b40awytibyxuw"]
 
 [ext_resource type="Script" path="res://scripts/GameScene.gd" id="1_7582w"]
 [ext_resource type="Script" path="res://scripts/Nail.gd" id="2_87bdj"]
-[ext_resource type="Texture2D" uid="uid://bhnguihlb5yj3" path="res://icon.svg" id="3_lrqsg"]
+[ext_resource type="Texture2D" uid="uid://biqaj5nf5o0lm" path="res://textures/NI_nail_idle000.PNG" id="3_8nuku"]
 [ext_resource type="Script" path="res://scripts/Hammer.gd" id="4_1q5ou"]
-[ext_resource type="Texture2D" uid="uid://b6fthlwfmowef" path="res://textures/hammer.png" id="5_if5ie"]
+[ext_resource type="Texture2D" uid="uid://ulri7ev4hyc4" path="res://textures/NI_hammer_anim000.png" id="5_4qx6q"]
+[ext_resource type="Texture2D" uid="uid://drayryvw5qoxc" path="res://textures/NI_hammer_anim001.png" id="6_13kyn"]
+[ext_resource type="Texture2D" uid="uid://bwvip5l4rkr6d" path="res://textures/NI_hammer_anim004.png" id="6_gjvnm"]
+[ext_resource type="Texture2D" uid="uid://q0hs7y8feuef" path="res://textures/NI_hammer_anim003.png" id="7_h1ssq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbch2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nqd27"]
-radius = 50.01
+radius = 30.1496
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2621u"]
-size = Vector2(44, 45)
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5dl6"]
+radius = 23.0489
 
 [sub_resource type="Animation" id="Animation_xvbe1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("visual:scale")
+tracks/0/path = NodePath("visual:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.645, 0.645)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("visual:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 183)]
+"update": 1,
+"values": [ExtResource("5_4qx6q")]
 }
 
 [sub_resource type="Animation" id="Animation_8eore"]
@@ -47,54 +38,30 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("visual:position")
+tracks/0/path = NodePath("visual:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0117362, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 183), Vector2(0, 168.91), Vector2(0, 183)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("visual:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0117362, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.645, 0.645), Vector2(0.588, 0.588), Vector2(0.645, 0.645)]
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_gjvnm"), ExtResource("5_4qx6q")]
 }
 
 [sub_resource type="Animation" id="Animation_hg1bh"]
 resource_name = "hammer_up"
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("visual:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("visual:texture")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 0.450626),
-"update": 0,
-"values": [Vector2(0, 183), Vector2(0, 242.52)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("visual:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 0.450625),
-"update": 0,
-"values": [Vector2(0.645, 0.645), Vector2(0.845, 0.845)]
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_4qx6q"), ExtResource("6_13kyn"), ExtResource("7_h1ssq")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o10nh"]
@@ -105,7 +72,6 @@ _data = {
 }
 
 [node name="game_scene" type="Node2D"]
-process_mode = 4
 script = ExtResource("1_7582w")
 
 [node name="dummy_camera" type="Camera2D" parent="."]
@@ -115,8 +81,8 @@ position = Vector2(122, -83)
 script = ExtResource("2_87bdj")
 
 [node name="visual" type="Sprite2D" parent="nail"]
-scale = Vector2(0.171764, 0.171764)
-texture = ExtResource("3_lrqsg")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_8nuku")
 
 [node name="perfect_hit_area" type="Area2D" parent="nail"]
 
@@ -147,9 +113,9 @@ angle_noise_speed = 4.0
 valid_hold_time = 0.2
 
 [node name="visual" type="Sprite2D" parent="hammer"]
-position = Vector2(0, 183)
-scale = Vector2(0.645, 0.645)
-texture = ExtResource("5_if5ie")
+position = Vector2(62, 345)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_4qx6q")
 
 [node name="collision" type="Area2D" parent="hammer"]
 collision_layer = 4194305
@@ -157,7 +123,7 @@ input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hammer/collision"]
 position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_2621u")
+shape = SubResource("CircleShape2D_f5dl6")
 
 [node name="animation_player" type="AnimationPlayer" parent="hammer"]
 libraries = {
