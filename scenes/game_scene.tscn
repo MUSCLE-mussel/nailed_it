@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://b40awytibyxuw"]
+[gd_scene load_steps=29 format=3 uid="uid://b40awytibyxuw"]
 
 [ext_resource type="Script" path="res://scripts/GameScene.gd" id="1_7582w"]
 [ext_resource type="Script" path="res://scripts/Nail.gd" id="2_87bdj"]
+[ext_resource type="Texture2D" uid="uid://15xqlsjhm24p" path="res://textures/NI_gameBackground_000.PNG" id="2_forjm"]
 [ext_resource type="Texture2D" uid="uid://biqaj5nf5o0lm" path="res://textures/NI_nail_idle000.PNG" id="3_8nuku"]
 [ext_resource type="Script" path="res://scripts/Hammer.gd" id="4_1q5ou"]
 [ext_resource type="Script" path="res://scenes/RandomArray.gd" id="4_f4cxt"]
@@ -10,6 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://drayryvw5qoxc" path="res://textures/NI_hammer_anim001.png" id="6_13kyn"]
 [ext_resource type="Texture2D" uid="uid://bwvip5l4rkr6d" path="res://textures/NI_hammer_anim004.png" id="6_gjvnm"]
 [ext_resource type="Texture2D" uid="uid://q0hs7y8feuef" path="res://textures/NI_hammer_anim003.png" id="7_h1ssq"]
+[ext_resource type="Texture2D" uid="uid://b1x1kh4q8wlrm" path="res://textures/NI_frameGameplay_chara_background.PNG" id="12_vvdqc"]
+[ext_resource type="Texture2D" uid="uid://b2gjyvmiob1dv" path="res://textures/NI_frameGameplay_frame_idle000.png" id="13_6rpew"]
+[ext_resource type="Texture2D" uid="uid://cxoh1cu38pbem" path="res://textures/NI_frameGameplay_whiteBackground.PNG" id="14_gopq6"]
+[ext_resource type="Texture2D" uid="uid://box2dsmjfdsxl" path="res://textures/NI_frameGameplay_hammer_idle000.PNG" id="15_dq5d6"]
+[ext_resource type="Texture2D" uid="uid://ch3gkr2opqi6v" path="res://textures/NI_frameGameplay_nail_idle000.PNG" id="16_a2lfe"]
+[ext_resource type="Texture2D" uid="uid://52mnb1nnc66a" path="res://textures/NI_frameGameplay_chara_idle000.png" id="17_iq4ol"]
+[ext_resource type="Texture2D" uid="uid://bj87b84ecx76f" path="res://textures/NI_frameGameplay_chara_fail000.png" id="18_p05d8"]
+[ext_resource type="Texture2D" uid="uid://cgaixdte47ir4" path="res://textures/NI_frameGameplay_chara_focus000.png" id="19_1yicr"]
+[ext_resource type="Texture2D" uid="uid://brjq6i56lxbga" path="res://textures/NI_frameGameplay_chara_win000.png" id="20_ovms6"]
+[ext_resource type="Texture2D" uid="uid://dlghmf48y6fkg" path="res://textures/NI_frameGameplay_chara_worried000.png" id="21_oclgq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbch2"]
 
@@ -78,6 +89,11 @@ script = ExtResource("1_7582w")
 
 [node name="dummy_camera" type="Camera2D" parent="."]
 
+[node name="NiGameBackground000" type="Sprite2D" parent="."]
+position = Vector2(-0.222221, -0.124994)
+scale = Vector2(0.250116, 0.250116)
+texture = ExtResource("2_forjm")
+
 [node name="nail" type="Node2D" parent="."]
 position = Vector2(122, -83)
 script = ExtResource("2_87bdj")
@@ -120,6 +136,60 @@ script = ExtResource("5_jrtcn")
 phase = 5.0
 offset = 2.26
 
+[node name="frame_sideview" type="Node2D" parent="."]
+
+[node name="NiFrameGameplayFrameIdle000" type="Sprite2D" parent="frame_sideview"]
+position = Vector2(-329.5, 167.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_6rpew")
+
+[node name="NiFrameGameplayWhiteBackground" type="Sprite2D" parent="frame_sideview"]
+position = Vector2(-329.5, 167.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("14_gopq6")
+
+[node name="NiFrameGameplayHammerIdle000" type="Sprite2D" parent="frame_sideview"]
+position = Vector2(-1016.75, 505.875)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("15_dq5d6")
+
+[node name="NiFrameGameplayNailIdle000" type="Sprite2D" parent="frame_sideview"]
+position = Vector2(-1405.75, 342.875)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("16_a2lfe")
+
+[node name="frame_chara" type="Node2D" parent="."]
+
+[node name="NiFrameGameplayCharaBackground" type="Sprite2D" parent="frame_chara"]
+position = Vector2(343, -176)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_vvdqc")
+
+[node name="NiFrameGameplayCharaIdle000" type="Sprite2D" parent="frame_chara"]
+position = Vector2(344, -179)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_iq4ol")
+
+[node name="NiFrameGameplayCharaFail000" type="Sprite2D" parent="frame_chara"]
+position = Vector2(1422, -171)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("18_p05d8")
+
+[node name="NiFrameGameplayCharaFocus000" type="Sprite2D" parent="frame_chara"]
+position = Vector2(1181, -165)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("19_1yicr")
+
+[node name="NiFrameGameplayCharaWin000" type="Sprite2D" parent="frame_chara"]
+position = Vector2(946, -178)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("20_ovms6")
+
+[node name="NiFrameGameplayCharaWorried000" type="Sprite2D" parent="frame_chara"]
+position = Vector2(714, -181)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("21_oclgq")
+
 [node name="hammer" type="Node2D" parent="." node_paths=PackedStringArray("target_nail", "random_array")]
 z_index = 1
 script = ExtResource("4_1q5ou")
@@ -159,9 +229,10 @@ libraries = {
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -462.0
-offset_top = 251.0
-offset_right = -422.0
-offset_bottom = 274.0
+offset_left = -465.0
+offset_top = 232.0
+offset_right = -332.0
+offset_bottom = 255.0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Remaining hits: 3"

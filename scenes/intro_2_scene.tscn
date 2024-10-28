@@ -1,6 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://ooceftq3ill2"]
+[gd_scene load_steps=15 format=3 uid="uid://ooceftq3ill2"]
 
 [ext_resource type="Script" path="res://scripts/AnimationScene.gd" id="1_ssl6y"]
+[ext_resource type="Texture2D" uid="uid://d008om2fmqkmi" path="res://textures/NI_cutscene02_chara_anim000.JPG" id="2_1deyf"]
+[ext_resource type="Texture2D" uid="uid://j67qkbc6tswm" path="res://textures/NI_wall03_idle000.PNG" id="3_edvov"]
+[ext_resource type="Texture2D" uid="uid://bgtq1vdc0jq63" path="res://textures/NI_wall01_idle000.PNG" id="4_vdm1i"]
+[ext_resource type="Texture2D" uid="uid://dkf5w0tceeq7d" path="res://textures/NI_cutscene02_hands_anim000.PNG" id="5_2s4qm"]
+[ext_resource type="Texture2D" uid="uid://ch3gkr2opqi6v" path="res://textures/NI_frameGameplay_nail_idle000.PNG" id="6_18nql"]
+[ext_resource type="Texture2D" uid="uid://cegdnmdbr5e7m" path="res://textures/NI_hub_background_000.JPG" id="7_1p8lp"]
+[ext_resource type="Texture2D" uid="uid://bd0x1m1kdv7rd" path="res://textures/NI_hub_levelFrames_001.PNG" id="8_3bro6"]
+[ext_resource type="Texture2D" uid="uid://ctyl81bb2kjnt" path="res://textures/NI_hub_chara_anim001.PNG" id="9_7egen"]
+[ext_resource type="Texture2D" uid="uid://b7efp2itv07lu" path="res://textures/NI_hub_frames_anim001.PNG" id="10_po0y0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cqacf"]
 font_size = 56
@@ -59,3 +68,53 @@ label_settings = SubResource("LabelSettings_cqacf")
 libraries = {
 "": SubResource("AnimationLibrary_t0kl5")
 }
+
+[node name="intro2_plan01" type="Node2D" parent="."]
+
+[node name="NiWall03Idle000" type="Sprite2D" parent="intro2_plan01"]
+position = Vector2(-1347, 415)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_edvov")
+
+[node name="NiWall01Idle000" type="Sprite2D" parent="intro2_plan01"]
+position = Vector2(-1826, 415)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_vdm1i")
+
+[node name="NiCutscene02HandsAnim000" type="Sprite2D" parent="intro2_plan01"]
+position = Vector2(-1326, 416)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_2s4qm")
+
+[node name="NiFrameGameplayNailIdle000" type="Sprite2D" parent="intro2_plan01"]
+position = Vector2(-1708, 283)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_18nql")
+
+[node name="intro2_plan02" type="Node2D" parent="."]
+
+[node name="NiCutscene02CharaAnim000" type="Sprite2D" parent="intro2_plan02"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_1deyf")
+
+[node name="intro2_plan03" type="Node2D" parent="."]
+
+[node name="NiHubBackground000" type="Sprite2D" parent="intro2_plan03"]
+position = Vector2(1557, 444)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_1p8lp")
+
+[node name="NiHubLevelFrames001" type="Sprite2D" parent="intro2_plan03"]
+position = Vector2(1554, 421)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_3bro6")
+
+[node name="NiHubCharaAnim001" type="Sprite2D" parent="intro2_plan03"]
+position = Vector2(1542, 553)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_7egen")
+
+[node name="NiHubFramesAnim001" type="Sprite2D" parent="intro2_plan03"]
+position = Vector2(1557, 597)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_po0y0")

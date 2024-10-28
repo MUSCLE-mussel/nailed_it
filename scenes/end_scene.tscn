@@ -1,11 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2n1h3baljbw"]
+[gd_scene load_steps=5 format=3 uid="uid://d2n1h3baljbw"]
+
+[ext_resource type="Texture2D" uid="uid://ba84uqvrbyvtm" path="res://textures/NI_blackBackground_000.JPG" id="1_yrgx5"]
+[ext_resource type="Texture2D" uid="uid://cq477j4k24fn5" path="res://textures/NI_title02_idle000.PNG" id="2_cst86"]
+[ext_resource type="Texture2D" uid="uid://5qvvtgqufkhv" path="res://textures/NI_title03_idle000.PNG" id="3_p36ij"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jqs8u"]
 font_size = 131
 
 [node name="end_scene" type="Node2D"]
 
+[node name="NiBlackBackground000" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_yrgx5")
+
+[node name="NiTitle02Idle000" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_cst86")
+
+[node name="NiTitle03Idle000" type="Sprite2D" parent="."]
+position = Vector2(157, 58)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_p36ij")
+
 [node name="TITLE" type="Label" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

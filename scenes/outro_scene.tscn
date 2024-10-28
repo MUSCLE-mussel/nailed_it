@@ -1,6 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://b68gktwwnqe7d"]
+[gd_scene load_steps=20 format=3 uid="uid://b68gktwwnqe7d"]
 
 [ext_resource type="Script" path="res://scripts/AnimationScene.gd" id="1_7x0fw"]
+[ext_resource type="Texture2D" uid="uid://cqo3kscb5kns3" path="res://textures/NI_cutscene04_anim000.JPG" id="2_3xidl"]
+[ext_resource type="Texture2D" uid="uid://ba84uqvrbyvtm" path="res://textures/NI_blackBackground_000.JPG" id="3_c13lk"]
+[ext_resource type="Texture2D" uid="uid://bcahwctt0by1f" path="res://textures/NI_cutscene03_chara_anim000.PNG" id="4_w4m5r"]
+[ext_resource type="Texture2D" uid="uid://b1adrnta8buu2" path="res://textures/NI_cutscene03_ono_anim000.PNG" id="5_7t11r"]
+[ext_resource type="Texture2D" uid="uid://cegdnmdbr5e7m" path="res://textures/NI_hub_background_000.JPG" id="5_jdrce"]
+[ext_resource type="Texture2D" uid="uid://bd0x1m1kdv7rd" path="res://textures/NI_hub_levelFrames_001.PNG" id="6_jpqfb"]
+[ext_resource type="Texture2D" uid="uid://3p6hbkvbek63" path="res://textures/NI_cutscene04_chara_anim000.PNG" id="6_uqa4a"]
+[ext_resource type="Texture2D" uid="uid://ctyl81bb2kjnt" path="res://textures/NI_hub_chara_anim001.PNG" id="7_rk8vs"]
+[ext_resource type="Texture2D" uid="uid://bq3y84g10428w" path="res://textures/NI_cutscene05_chara_anim000.PNG" id="7_wtbs2"]
+[ext_resource type="Texture2D" uid="uid://cuenjl5a1m8jd" path="res://textures/NI_sparkles_idle000.PNG" id="8_lbl2g"]
+[ext_resource type="Texture2D" uid="uid://dnn45kidvl00g" path="res://textures/NI_hub_levelFrames_002.PNG" id="8_t48p6"]
+[ext_resource type="Texture2D" uid="uid://gb8eu1cpetpr" path="res://textures/NI_hub_levelFrames_003.PNG" id="9_0rtcf"]
+[ext_resource type="Texture2D" uid="uid://d4c48fhq6hp74" path="res://textures/NI_hub_levelFrames_004.PNG" id="10_lgfiy"]
+[ext_resource type="Texture2D" uid="uid://s48t4iyj3io7" path="res://textures/NI_hub_levelFrames_005.PNG" id="11_xr7vo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e72dj"]
 font_size = 600
@@ -69,3 +83,119 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_t0kl5")
 }
+
+[node name="outro_plan01" type="Node2D" parent="."]
+
+[node name="NiBlackBackground000" type="Sprite2D" parent="outro_plan01"]
+position = Vector2(-3213.63, 12)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_c13lk")
+
+[node name="NiCutscene03CharaAnim000" type="Sprite2D" parent="outro_plan01"]
+position = Vector2(-3222.63, 23)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_w4m5r")
+
+[node name="NiCutscene03OnoAnim000" type="Sprite2D" parent="outro_plan01"]
+position = Vector2(-3056.63, 33)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_7t11r")
+
+[node name="outro_plan02" type="Node2D" parent="."]
+position = Vector2(-2128.63, 1)
+
+[node name="NiHubBackground000" type="Sprite2D" parent="outro_plan02"]
+position = Vector2(-22, 4)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_jdrce")
+
+[node name="NiHubLevelFrames001" type="Sprite2D" parent="outro_plan02"]
+position = Vector2(-28, -16)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_jpqfb")
+
+[node name="NiHubCharaAnim001" type="Sprite2D" parent="outro_plan02"]
+position = Vector2(-37, 112)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_rk8vs")
+
+[node name="NiHubLevelFrames002" type="Sprite2D" parent="outro_plan02"]
+position = Vector2(-257, 142)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_t48p6")
+
+[node name="NiHubLevelFrames003" type="Sprite2D" parent="outro_plan02"]
+position = Vector2(-273, -85)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_0rtcf")
+
+[node name="NiHubLevelFrames004" type="Sprite2D" parent="outro_plan02"]
+position = Vector2(219, 57)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_lgfiy")
+
+[node name="NiHubLevelFrames005" type="Sprite2D" parent="outro_plan02"]
+position = Vector2(165, -181)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_xr7vo")
+
+[node name="outro_plan03" type="Node2D" parent="."]
+position = Vector2(-1081, 1)
+
+[node name="NiHubBackground000" type="Sprite2D" parent="outro_plan03"]
+position = Vector2(-22, 4)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_jdrce")
+
+[node name="NiHubLevelFrames001" type="Sprite2D" parent="outro_plan03"]
+position = Vector2(-28, -16)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_jpqfb")
+
+[node name="NiCutscene04CharaAnim000" type="Sprite2D" parent="outro_plan03"]
+position = Vector2(-28, 113)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_uqa4a")
+
+[node name="NiHubLevelFrames002" type="Sprite2D" parent="outro_plan03"]
+position = Vector2(-257, 142)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_t48p6")
+
+[node name="NiHubLevelFrames003" type="Sprite2D" parent="outro_plan03"]
+position = Vector2(-273, -85)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_0rtcf")
+
+[node name="NiHubLevelFrames004" type="Sprite2D" parent="outro_plan03"]
+position = Vector2(219, 57)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_lgfiy")
+
+[node name="NiHubLevelFrames005" type="Sprite2D" parent="outro_plan03"]
+position = Vector2(165, -181)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_xr7vo")
+
+[node name="outro_plan04" type="Node2D" parent="."]
+
+[node name="NiCutscene04Anim000" type="Sprite2D" parent="outro_plan04"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_3xidl")
+
+[node name="outro_plan05" type="Node2D" parent="."]
+
+[node name="NiBlackBackground001" type="Sprite2D" parent="outro_plan05"]
+position = Vector2(2458, -4)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_c13lk")
+
+[node name="NiBlackBackground002" type="Sprite2D" parent="outro_plan05"]
+position = Vector2(2458, 14)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_wtbs2")
+
+[node name="NiBlackBackground003" type="Sprite2D" parent="outro_plan05"]
+position = Vector2(2456, -97)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_lbl2g")

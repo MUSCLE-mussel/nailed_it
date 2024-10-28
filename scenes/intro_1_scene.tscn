@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8j5w7agehy73"]
+[gd_scene load_steps=9 format=3 uid="uid://b8j5w7agehy73"]
 
 [ext_resource type="Script" path="res://scripts/AnimationScene.gd" id="1_66q13"]
+[ext_resource type="Texture2D" uid="uid://ba84uqvrbyvtm" path="res://textures/NI_blackBackground_000.JPG" id="2_nvuia"]
+[ext_resource type="Texture2D" uid="uid://4lfthejdxbci" path="res://textures/NI_cutscene01_chara_anim000.PNG" id="3_gge5u"]
+[ext_resource type="Texture2D" uid="uid://dqpgsglryyigm" path="res://textures/NI_title01_idle000.PNG" id="4_wa3cs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cqacf"]
 font_size = 56
@@ -46,7 +49,21 @@ _data = {
 script = ExtResource("1_66q13")
 animation_name = &"intro1_placeholder"
 
+[node name="NiBlackBackground000" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_nvuia")
+
+[node name="NiCutscene01CharaAnim000" type="Sprite2D" parent="."]
+position = Vector2(5, 60)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_gge5u")
+
+[node name="NiTitle01Idle000" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_wa3cs")
+
 [node name="dummy" type="Label" parent="."]
+visible = false
 offset_left = -701.0
 offset_top = -40.0
 offset_right = -482.0

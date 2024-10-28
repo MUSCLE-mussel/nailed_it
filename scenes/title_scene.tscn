@@ -1,14 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmip1wbw2vx8m"]
+[gd_scene load_steps=7 format=3 uid="uid://cmip1wbw2vx8m"]
+
+[ext_resource type="Texture2D" uid="uid://ba84uqvrbyvtm" path="res://textures/NI_blackBackground_000.JPG" id="1_vhf1h"]
+[ext_resource type="Texture2D" uid="uid://dqpgsglryyigm" path="res://textures/NI_title01_idle000.PNG" id="2_20s4n"]
+[ext_resource type="FontFile" uid="uid://dk306v1hq5g0v" path="res://font/HelveticaNeueLTStd-Bd.otf" id="2_h5p3f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jqs8u"]
 font_size = 131
+
+[sub_resource type="Theme" id="Theme_qwoj0"]
+default_font = ExtResource("2_h5p3f")
+default_font_size = 14
 
 [sub_resource type="LabelSettings" id="LabelSettings_tjm3f"]
 font_size = 31
 
 [node name="title_scene" type="Node2D"]
 
+[node name="NiBlackBackground000" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_vhf1h")
+
+[node name="NiTitle01Idle000" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_20s4n")
+
 [node name="TITLE" type="Label" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,13 +47,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = 52.0
-offset_right = 200.0
-offset_bottom = 96.0
+offset_left = -203.0
+offset_top = 46.0
+offset_right = 197.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(200, 0)
-text = "press any button to start"
+theme = SubResource("Theme_qwoj0")
+text = "press any button"
 label_settings = SubResource("LabelSettings_tjm3f")
 horizontal_alignment = 1
