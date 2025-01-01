@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ooceftq3ill2"]
+[gd_scene load_steps=16 format=3 uid="uid://ooceftq3ill2"]
 
 [ext_resource type="Script" path="res://scripts/AnimationScene.gd" id="1_ssl6y"]
 [ext_resource type="Texture2D" uid="uid://d008om2fmqkmi" path="res://textures/NI_cutscene02_chara_anim000.JPG" id="2_1deyf"]
@@ -14,6 +14,70 @@
 [sub_resource type="LabelSettings" id="LabelSettings_cqacf"]
 font_size = 56
 
+[sub_resource type="Animation" id="Animation_dyt1d"]
+resource_name = "Cutscene02"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("intro2_plan01/NiCutscene02HandsAnim000:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.5, 0.833333, 1.16667, 1.53333, 2.06667, 2.2, 2.66667),
+"transitions": PackedFloat32Array(0.63728, 1.7411, 0.615572, 1.86607, 0.574349, 2.73208, 0.615572, 1, 1.41421),
+"update": 0,
+"values": [Vector2(646.425, 354), Vector2(579.425, 314), Vector2(533.425, 372), Vector2(469.425, 330), Vector2(397.625, 372), Vector2(334.853, 320.606), Vector2(334.853, 320.606), Vector2(350.339, 334.343), Vector2(246, 376)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("intro2_plan01/NiCutscene02HandsAnim000:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.06667, 2.3, 2.53333, 2.66667),
+"transitions": PackedFloat32Array(0.482968, 1, 1, 1.68179),
+"update": 0,
+"values": [0.0, -0.115192, -0.115192, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("intro2_plan01:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5, 3.53333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("intro2_plan02:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.5, 3.53333, 5.53333, 5.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("intro2_plan03:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5.53333, 5.56667, 9, 9.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
 [sub_resource type="Animation" id="Animation_vvmqd"]
 length = 0.001
 tracks/0/type = "value"
@@ -27,6 +91,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-701, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("intro2_plan01/NiCutscene02HandsAnim000:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(596.625, 271)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("intro2_plan01/NiCutscene02HandsAnim000:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("intro2_plan02:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_hlhba"]
@@ -47,6 +147,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t0kl5"]
 _data = {
+"Cutscene02": SubResource("Animation_dyt1d"),
 "RESET": SubResource("Animation_vvmqd"),
 "intro2_placeholder": SubResource("Animation_hlhba")
 }
@@ -58,11 +159,12 @@ animation_name = &"intro1_placeholder"
 [node name="dummy" type="Label" parent="."]
 offset_left = -701.0
 offset_top = -40.0
-offset_right = -482.0
+offset_right = -478.0
 offset_bottom = 37.0
 text = "INTRO 2
 "
 label_settings = SubResource("LabelSettings_cqacf")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -72,49 +174,56 @@ libraries = {
 [node name="intro2_plan01" type="Node2D" parent="."]
 
 [node name="NiWall03Idle000" type="Sprite2D" parent="intro2_plan01"]
-position = Vector2(-1347, 415)
+position = Vector2(575.625, 270)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_edvov")
+metadata/_edit_lock_ = true
 
 [node name="NiWall01Idle000" type="Sprite2D" parent="intro2_plan01"]
-position = Vector2(-1826, 415)
+position = Vector2(96.625, 270)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_vdm1i")
+metadata/_edit_lock_ = true
 
 [node name="NiCutscene02HandsAnim000" type="Sprite2D" parent="intro2_plan01"]
-position = Vector2(-1326, 416)
+z_index = 1
+position = Vector2(596.625, 271)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_2s4qm")
+metadata/_edit_lock_ = true
 
 [node name="NiFrameGameplayNailIdle000" type="Sprite2D" parent="intro2_plan01"]
-position = Vector2(-1708, 283)
+position = Vector2(156.625, 144)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_18nql")
 
 [node name="intro2_plan02" type="Node2D" parent="."]
+visible = false
 
 [node name="NiCutscene02CharaAnim000" type="Sprite2D" parent="intro2_plan02"]
+position = Vector2(480, 270)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_1deyf")
+metadata/_edit_lock_ = true
 
 [node name="intro2_plan03" type="Node2D" parent="."]
 
 [node name="NiHubBackground000" type="Sprite2D" parent="intro2_plan03"]
-position = Vector2(1557, 444)
+position = Vector2(480, 270)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("7_1p8lp")
 
 [node name="NiHubLevelFrames001" type="Sprite2D" parent="intro2_plan03"]
-position = Vector2(1554, 421)
+position = Vector2(477, 247)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("8_3bro6")
 
 [node name="NiHubCharaAnim001" type="Sprite2D" parent="intro2_plan03"]
-position = Vector2(1542, 553)
+position = Vector2(465, 379)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("9_7egen")
 
 [node name="NiHubFramesAnim001" type="Sprite2D" parent="intro2_plan03"]
-position = Vector2(1557, 597)
+position = Vector2(480, 423)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("10_po0y0")

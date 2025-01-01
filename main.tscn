@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bw32n2esbu4eb"]
+[gd_scene load_steps=26 format=3 uid="uid://bw32n2esbu4eb"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_ql4pp"]
 [ext_resource type="PackedScene" uid="uid://cmip1wbw2vx8m" path="res://scenes/title_scene.tscn" id="2_ou56t"]
@@ -22,8 +22,17 @@
 [ext_resource type="Texture2D" uid="uid://bwjsijyplqn0a" path="res://textures/NI_hub_frames_anim005.PNG" id="16_02uin"]
 [ext_resource type="Texture2D" uid="uid://ctyl81bb2kjnt" path="res://textures/NI_hub_chara_anim001.PNG" id="16_b3oc6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5b87"]
+size = Vector2(397, 281.928)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncl8d"]
-size = Vector2(369, 209)
+size = Vector2(266, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uat3r"]
+size = Vector2(339, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21jgu"]
+size = Vector2(297, 287)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ql4pp")
@@ -59,7 +68,7 @@ metadata/_edit_use_anchors_ = true
 [node name="hub_scene" type="Node2D" parent="." node_paths=PackedStringArray("zones")]
 position = Vector2(22, -4)
 script = ExtResource("6_inc70")
-zones = [NodePath("zone1"), NodePath("zone2")]
+zones = [null, NodePath("zone2")]
 
 [node name="hub_background" type="Node2D" parent="hub_scene"]
 
@@ -128,11 +137,22 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("15_wpcsf")
 
 [node name="zone1" type="CollisionShape2D" parent="hub_scene"]
-position = Vector2(-259, -130)
-shape = SubResource("RectangleShape2D_ncl8d")
+position = Vector2(-273.5, -86)
+scale = Vector2(1, 0.99316)
+shape = SubResource("RectangleShape2D_g5b87")
 script = ExtResource("7_wcp76")
 
 [node name="zone2" type="CollisionShape2D" parent="hub_scene"]
-position = Vector2(-278, 153)
+position = Vector2(-257, 142)
 shape = SubResource("RectangleShape2D_ncl8d")
+script = ExtResource("7_wcp76")
+
+[node name="zone3" type="CollisionShape2D" parent="hub_scene"]
+position = Vector2(164.5, -181)
+shape = SubResource("RectangleShape2D_uat3r")
+script = ExtResource("7_wcp76")
+
+[node name="zone4" type="CollisionShape2D" parent="hub_scene"]
+position = Vector2(219.5, 57.5)
+shape = SubResource("RectangleShape2D_21jgu")
 script = ExtResource("7_wcp76")
