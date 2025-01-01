@@ -14,11 +14,12 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_yrgx5")
 
 [node name="NiTitle02Idle000" type="Sprite2D" parent="."]
+position = Vector2(12, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_cst86")
 
 [node name="NiTitle03Idle000" type="Sprite2D" parent="."]
-position = Vector2(157, 58)
+position = Vector2(179, 86)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_p36ij")
 
